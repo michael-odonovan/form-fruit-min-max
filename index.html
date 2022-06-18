@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>form min max validation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      form {
+        width: 95%;
+        max-width: 300px;
+        margin: 50px auto;
+        display: grid;
+        gap: 20px;
+      }
+
+      form > div {
+        display: grid;
+      }
+    
+      button {
+        justify-self: end;
+        background: green;
+        border: 0;
+        border-radius: 5px;
+        padding: 8px 12px;
+        color: white;
+      }
+
+    </style>
+  </head>
+  <body>
+    <form onsubmit="myFunction()">
+
+      <h2>Choose a Snack</h2>
+      <div>
+        <label for="choose">Would you prefer a banana or a cherry?</label>
+        <input autocomplete="off" type="text" id="choose" name="i_like" required minlength="6" maxlength="6">
+      </div>
+
+      <div>
+        <label for="number">How many would you like?</label>
+        <input autocomplete="off" type="number" id="number" name="amount" value="1" min="1" max="10">
+      </div>
+      
+      <button>Submit</button>
+
+      <h2>Output:</h2>
+      <div id="fruitOutput" class="fruitOuput"></div>
+      <div id="numberOutput" class="numberOutput"></div>
+  
+    </form>
+
+    
+    <script>
+      let myFunction = () => {
+        event.preventDefault();
+
+        let choiceOutput = document.getElementById("choose").value;
+        let numberOutput = document.getElementById("number").value;
+
+        document.getElementById("fruitOutput").innerHTML = choiceOutput;
+        document.getElementById("numberOutput").innerHTML = numberOutput;
+      }
+    </script>
+  
+  </body>
+</html>
+
